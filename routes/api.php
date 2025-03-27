@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\PruebaController;
+use App\Http\Controllers\Api\CatalogoProductos;
 
-Route::apiResource('prueba', PruebaController::class);
+Route::apiResource('catalogoProductos', CatalogoProductos::class);
