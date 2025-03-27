@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * 
+ *
  *
  * @property int $id_image
  * @property int $id_product
@@ -21,4 +22,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProductImage extends Model
 {
     protected $table = 'product_image';
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
