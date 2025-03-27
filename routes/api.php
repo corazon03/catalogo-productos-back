@@ -8,5 +8,5 @@ use App\Http\Controllers\Api\ProductsController;
 Route::apiResource('prueba', PruebaController::class);
 Route::get('products', [ProductsController::class, 'index']);
 Route::get('products/{idProduct}', [ProductsController::class, 'show']);
-Route::apiResource('categories', CategoriesController::class);
+Route::get('categories', [CategoriesController::class, 'index']);
 
