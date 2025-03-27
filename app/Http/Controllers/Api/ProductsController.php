@@ -62,7 +62,7 @@ class ProductsController extends Controller
             return $this->errorResponse('El id no es correcto', 400);
         }
         try {
-            $producto = Product::find($idProduct);
+            $producto = Product::with('productImages')->find($idProduct);
             if ($producto === null) {
                 return $this->errorResponse('No se encontró el producto', 404);
             }
