@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.24, for osx11.1 (x86_64)
+-- MySQL dump 10.13  Distrib 9.2.0, for Linux (x86_64)
 --
 -- Host: localhost    Database: catalogo-productos
 -- ------------------------------------------------------
@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories` (
   `id_category` tinyint NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT 'Nombre de la categoría',
@@ -45,7 +45,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product_image`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product_image` (
   `id_image` tinyint NOT NULL AUTO_INCREMENT,
   `id_product` tinyint NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE `product_image` (
   PRIMARY KEY (`id_image`),
   KEY `product_image_products_FK` (`id_product`),
   CONSTRAINT `product_image_products_FK` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `product_image` (
 
 LOCK TABLES `product_image` WRITE;
 /*!40000 ALTER TABLE `product_image` DISABLE KEYS */;
-INSERT INTO `product_image` VALUES (1,1,'Link');
+INSERT INTO `product_image` VALUES (1,1,'https://i.ibb.co/RTMDmYsR/Lilac-Tulips-on-Grey-Fabric.jpg'),(2,1,'https://i.ibb.co/BVR8YSCm/White-Tulips-in-Glass-Vase.jpg'),(3,1,'https://i.ibb.co/rKkqHtYC/Vibrant-Floral-Arrangement.jpg'),(4,2,'https://i.ibb.co/NdZYxRzL/Vibrant-Celebration-Bouquet.jpg'),(5,2,'https://i.ibb.co/JRkD1LNX/Vibrant-Flower-Bouquet-in-Glass-Vase.jpg'),(6,2,'https://i.ibb.co/DnqXjm4/Elegant-Flower-Bouquet.jpg'),(7,3,'https://i.ibb.co/gLL53n5v/Vibrant-Flower-Bouquet.jpg'),(8,3,'https://i.ibb.co/tPHsXM69/Elegant-Pink-Roses-in-Classic-White-Vase.jpg'),(9,3,'https://i.ibb.co/Z63WYhzz/Elegance-in-Bloom-Dahlia-Medley-with-Rustic-Charm.jpg'),(10,4,'https://i.ibb.co/mCcDddLR/Elegant-Floral-Arrangement.jpg'),(11,4,'https://i.ibb.co/gL6TtwfT/Romantic-Opulence-A-Bouquet-of-Red-and-Pink-Roses.jpg'),(12,4,'https://i.ibb.co/yFvR3ds6/Serene-Floral-Display.jpg'),(13,5,'https://i.ibb.co/RTMDmYsR/Lilac-Tulips-on-Grey-Fabric.jpg'),(14,5,'https://i.ibb.co/BVR8YSCm/White-Tulips-in-Glass-Vase.jpg'),(15,5,'https://i.ibb.co/rKkqHtYC/Vibrant-Floral-Arrangement.jpg'),(16,6,'https://i.ibb.co/NdZYxRzL/Vibrant-Celebration-Bouquet.jpg'),(17,6,'https://i.ibb.co/JRkD1LNX/Vibrant-Flower-Bouquet-in-Glass-Vase.jpg'),(18,6,'https://i.ibb.co/DnqXjm4/Elegant-Flower-Bouquet.jpg'),(19,7,'https://i.ibb.co/gLL53n5v/Vibrant-Flower-Bouquet.jpg'),(20,7,'https://i.ibb.co/tPHsXM69/Elegant-Pink-Roses-in-Classic-White-Vase.jpg'),(21,7,'https://i.ibb.co/Z63WYhzz/Elegance-in-Bloom-Dahlia-Medley-with-Rustic-Charm.jpg'),(22,8,'https://i.ibb.co/mCcDddLR/Elegant-Floral-Arrangement.jpg'),(23,8,'https://i.ibb.co/gL6TtwfT/Romantic-Opulence-A-Bouquet-of-Red-and-Pink-Roses.jpg'),(24,8,'https://i.ibb.co/yFvR3ds6/Serene-Floral-Display.jpg'),(25,9,'https://i.ibb.co/NdZYxRzL/Vibrant-Celebration-Bouquet.jpg'),(26,9,'https://i.ibb.co/JRkD1LNX/Vibrant-Flower-Bouquet-in-Glass-Vase.jpg'),(27,9,'https://i.ibb.co/DnqXjm4/Elegant-Flower-Bouquet.jpg'),(28,10,'https://i.ibb.co/RTMDmYsR/Lilac-Tulips-on-Grey-Fabric.jpg'),(29,10,'https://i.ibb.co/BVR8YSCm/White-Tulips-in-Glass-Vase.jpg'),(30,10,'https://i.ibb.co/rKkqHtYC/Vibrant-Floral-Arrangement.jpg'),(31,11,'https://i.ibb.co/NdZYxRzL/Vibrant-Celebration-Bouquet.jpg'),(32,11,'https://i.ibb.co/JRkD1LNX/Vibrant-Flower-Bouquet-in-Glass-Vase.jpg'),(33,11,'https://i.ibb.co/DnqXjm4/Elegant-Flower-Bouquet.jpg'),(34,12,'https://i.ibb.co/gLL53n5v/Vibrant-Flower-Bouquet.jpg'),(35,12,'https://i.ibb.co/tPHsXM69/Elegant-Pink-Roses-in-Classic-White-Vase.jpg'),(36,12,'https://i.ibb.co/Z63WYhzz/Elegance-in-Bloom-Dahlia-Medley-with-Rustic-Charm.jpg'),(37,13,'https://i.ibb.co/mCcDddLR/Elegant-Floral-Arrangement.jpg'),(38,13,'https://i.ibb.co/gL6TtwfT/Romantic-Opulence-A-Bouquet-of-Red-and-Pink-Roses.jpg'),(39,13,'https://i.ibb.co/yFvR3ds6/Serene-Floral-Display.jpg'),(40,14,'https://i.ibb.co/NdZYxRzL/Vibrant-Celebration-Bouquet.jpg'),(41,14,'https://i.ibb.co/JRkD1LNX/Vibrant-Flower-Bouquet-in-Glass-Vase.jpg'),(42,14,'https://i.ibb.co/DnqXjm4/Elegant-Flower-Bouquet.jpg'),(43,15,'https://i.ibb.co/RTMDmYsR/Lilac-Tulips-on-Grey-Fabric.jpg'),(44,15,'https://i.ibb.co/BVR8YSCm/White-Tulips-in-Glass-Vase.jpg'),(45,15,'https://i.ibb.co/rKkqHtYC/Vibrant-Floral-Arrangement.jpg');
 /*!40000 ALTER TABLE `product_image` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,7 +72,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `id_product` tinyint NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT 'Nombre del producto',
@@ -111,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-27  6:15:09
+-- Dump completed on 2025-03-27 17:13:11
