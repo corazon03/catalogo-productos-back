@@ -20,8 +20,13 @@ class ProductsController extends Controller
     {
         $page = $request->query('page', 1);
         $limit = $request->query('limit', 5);
+        $idCategory = $request->query('idCategory');
+
+
         try {
-            $productos = Product::paginate($limit, ['*'], 'page', $page)->appends($request->query());
+            $productos = Product::when($idCategory, function ($query, $idCategory) {
+                return $query->where('category', $idCategory);
+            })->paginate($limit, ['*'], 'page', $page)->appends($request->query());
             if ($productos->isEmpty()) {
                 return $this->errorResponse('No se encontraron productos', 404);
             }
