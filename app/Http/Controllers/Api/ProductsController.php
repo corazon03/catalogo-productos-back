@@ -3,23 +3,32 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categorie;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use App\Traits\ResponseModel;
 
-class PruebaController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): JsonResponse
+
+    use ResponseModel;
+
+    public function index(Request $request): JsonResponse
     {
-        $productos = Product::with('productImages', 'categoryData')->get();
-
-        $cat = Categorie::with('product')->get();
-
-        return response()->json(['productos' => $productos, 'categorias' => $cat]);
+        $page = $request->query('page', 1);
+        $limit = $request->query('limit', 5);
+        try {
+            $productos = Product::paginate($limit, ['*'], 'page', $page)->appends($request->query());
+            if ($productos->isEmpty()) {
+                return $this->errorResponse('No se encontraron productos', 404);
+            }
+            return $this->successResponse($productos, 'Productos obtenidos con éxito');
+        } catch (\Exception $e) {
+            return $this->errorResponse('Ocurrió algún error', 500);
+        }
     }
 
     /**
