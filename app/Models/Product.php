@@ -39,6 +39,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Product extends Model
 {
     protected $hidden = ['category', 'stock', 'description'];
+    protected $primaryKey = 'id_product';
     public function categoryData(): BelongsTo
     {
         return $this->belongsTo(Categorie::class, 'category', 'id_category');

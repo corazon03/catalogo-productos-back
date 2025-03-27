@@ -34,17 +34,29 @@ class ProductsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store($idProduct)
     {
-        //
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($idProduct): JsonResponse
     {
-        //
+        if (!isset($idProduct) || !is_numeric($idProduct)) {
+            return $this->errorResponse('El id no es correcto', 400);
+        }
+        try {
+            $producto = Product::find($idProduct);
+            if ($producto === null) {
+                return $this->errorResponse('No se encontró el producto', 404);
+            }
+            $producto->makeVisible(['category', 'stock', 'description']);
+            return $this->successResponse($producto, 'Producto obtenido con éxito');
+        } catch (\Exception $e) {
+            return $this->errorResponse('Ocurrió un error inesperado', 500);
+        }
     }
 
     /**
